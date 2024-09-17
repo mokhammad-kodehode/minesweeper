@@ -4,37 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
-    <style>
-        .board {
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    gap: 2px;
-        }
-        .cell {
-            width: 30px;
-            height: 30px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            cursor: pointer;
-            user-select: none;
-        }
-        .cell.revealed {
-            background-color: #eee;
-        }
-        .cell.mine {
-            background-color: red;
-            color: white;
-        }
-        .cell.flag {
-            background-color: orange;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Minesweeper</h1>
+    <div class="difficulty-selector">
+        <label for="difficulty">Choose Difficulty:</label>
+        <select id="difficulty">
+            <option value="beginner">Beginner (10 bombs)</option>
+            <option value="intermediate">Intermediate (40 bombs)</option>
+            <option value="expert">Expert (99 bombs)</option>
+        </select>
+    </div>
+    <div class="panel">
+        <div id="bombsCount">Bombs: 10</div>
+        <button id="restartButton">Restart</button>
+        <div id="timer">Time: 0s</div>
+    </div>
     <div id="board" class="board"></div>
     <script src="script.js"></script>
 </body>
