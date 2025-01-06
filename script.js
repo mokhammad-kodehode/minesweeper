@@ -46,6 +46,7 @@ function initializeBoard() {
   time = 0;
   firstClick = false;
   gameOver = false;
+  document.getElementById('restartButton').textContent = "😃";
   boardElement.innerHTML = "";
   board = Array.from({ length: rows }, () => Array(cols).fill(0));
   cells = [];
@@ -55,8 +56,7 @@ function initializeBoard() {
   boardElement.style.gridTemplateRows = `repeat(${rows}, 30px)`;
 
   // Изменяем ширину панели в зависимости от ширины игрового поля
-  const panelWidth = cols * 30 + (cols - 1) * 2; // Ширина поля = ширина ячеек + зазоры
-  panelElement.style.width = `${panelWidth}px`;
+
 
   bombsCountDisplay.textContent = `Bombs: ${mineCount}`;
 
@@ -129,8 +129,8 @@ function handleCellClick(event) {
     cell.classList.add("revealed", "mine");
     cell.textContent = "💣";
     gameOver = true;
+    document.getElementById('restartButton').textContent = "😵";
     clearInterval(timerInterval);
-    alert("Game Over!");
   } else {
     revealCell(row, col);
     checkWin();
